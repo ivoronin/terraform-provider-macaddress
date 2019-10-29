@@ -1,0 +1,18 @@
+language: go
+go:
+- 1.12.x
+script:
+- make
+arch:
+- amd64
+- arm64
+os: linux
+deploy:
+  provider: releases
+  file: terraform-provider-macaddress-*
+  file_glob: true
+  skip_cleanup: true
+  on:
+    tags: true
+  api-key:
+    secure: eT3gNZcbFHy8UxriWfepbrAv24WprQ7/dnHltmZ9zXoCgQjNN8OecNCMOtVuC1twLt7ZAgfy3OmXCZs1ykmPyjTGMyys+aORen2Mb0LBubjYeZU/v0ThfAir+O4xgfTmLo/wbqMAeUbJHIfFJq+InZyROuqjGm2M9imo8OKtnc0dDe8A3C2qqY30MM8RrDgb3JaOSiquJz0nfWk4AVINlu08znwE0eFNwzOuICZ5RovF9xox7GDXhzKlxEFiqjULw+WDH4hdW7FWc3aD0GES6Zo9VxQdChyn70ffRZ0Yf5hZXHuRkQUqL4c6WjB2SJu3gDb/FlDIRVP7A0G4KNIcKxMT7RPt1HzFd0iEWXG4l9sbWd7yQbuhu0vh0iEH17hE64edGGKWrKdekf+/W2GJ5H0Hp6+fMCplWAyC+1en6pWm6lQyXNsURE8tywM1cC0Ow5HwAduJ/9zkNi02kX5QJmukes7F2U6+orfQHcz2XS0ld1mIbZ1rkl37OFTWhMbHoFRYiX3Fa2u85NusAspgCqPxei1lB7nBiyKNbC+i8sfI44q0Cm56RTjjBTnGpyxX4ER7X7dKc0awhk47KrjiQt5DD86+CrgGVkWVEnuT3Sg1DtJCO+8V52KRycNeSZF22pPyaOVIAn9KUJUj4Zcre9t1VWl9eeTPfMKP9N8rGY0=
