@@ -7,6 +7,15 @@ Docs: https://registry.terraform.io/providers/ivoronin/macaddress/latest/docs
 
 # Use case
 ```hcl
+terraform {
+  required_providers {
+    macaddress = {
+      source = "ivoronin/macaddress"
+      version = "X.Y.Z"
+    }
+  }
+}
+
 resource "macaddress" "example_address" {
 }
 
