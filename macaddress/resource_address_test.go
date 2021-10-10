@@ -22,6 +22,11 @@ func TestAccMacAddress(t *testing.T) {
 				),
 			},
 			{
+				ResourceName:      "macaddress.address_basic",
+				ImportState:       true,
+				ImportStateVerify: true,
+			},
+			{
 				Config: testAccMacAddressConfigPrefix(prefix),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckMacAddressPrefixMatch("macaddress.address_prefix", prefix),

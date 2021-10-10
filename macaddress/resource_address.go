@@ -5,6 +5,7 @@ import (
 	"crypto/rand"
 	"errors"
 	"fmt"
+	"strconv"
 	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
@@ -32,7 +33,26 @@ func resourceAddress() *schema.Resource {
 				ForceNew: true,
 			},
 		},
+		Importer: &schema.ResourceImporter{
+			State: resourceAddressImport,
+		},
 	}
+}
+
+func resourceAddressImport(d *schema.ResourceData, meta interface{}) ([]*schema.ResourceData, error) {
+	address := d.Id()
+	parts := strings.Split(address, ":")
+	if len(parts) != 6 {
+		return nil, fmt.Errorf("%s is not a valid mac address", address)
+	}
+	for _, p := range parts {
+		_, err := strconv.ParseInt(p, 16, 16)
+		if err != nil {
+			return nil, fmt.Errorf("%s is not a valid mac address", address)
+		}
+	}
+	d.Set("address", address)
+	return []*schema.ResourceData{d}, nil
 }
 
 func resourceAddressCreate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {

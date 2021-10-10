@@ -21,3 +21,11 @@ resource "macaddress" "example_prefix_address" {
 ## Attribute Reference
 
 * `address` - Generated macaddress
+
+## Import
+
+Import is supported using the following syntax:
+
+```shell
+terraform import macaddress.example_imported_address 00:11:22:33:44:55
+```
