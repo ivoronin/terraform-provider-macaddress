@@ -11,7 +11,7 @@ terraform {
   required_providers {
     macaddress = {
       source = "ivoronin/macaddress"
-      version = "X.Y.Z"
+      version = "0.3.0"
     }
   }
 }
