@@ -17,14 +17,14 @@ const MAC_ADDRESS_LENGTH = 6
 func resourceAddress() *schema.Resource {
 	return &schema.Resource{
 		CreateContext: resourceAddressCreate,
-		ReadContext:   resourceAddressNoop,
-		DeleteContext: resourceAddressNoop,
+		Read:          schema.Noop,
+		Delete:        schema.RemoveFromState,
 		Schema: map[string]*schema.Schema{
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"prefix": &schema.Schema{
+			"prefix": {
 				Type: schema.TypeList,
 				Elem: &schema.Schema{
 					Type: schema.TypeInt,
@@ -92,9 +92,5 @@ func resourceAddressCreate(ctx context.Context, d *schema.ResourceData, m interf
 	d.SetId(address)
 	d.Set("address", address)
 
-	return nil
-}
-
-func resourceAddressNoop(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	return nil
 }

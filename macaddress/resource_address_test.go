@@ -37,10 +37,10 @@ func TestAccMacAddress(t *testing.T) {
 }
 
 func testAccMacAddressConfigBasic() string {
-	return fmt.Sprintf(`
+	return `
 	resource "macaddress" "address_basic" {
 	}
-	`)
+	`
 }
 
 func testAccMacAddressConfigPrefix(prefix []byte) string {
