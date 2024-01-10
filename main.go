@@ -4,7 +4,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 
-	"terraform-provider-macaddress/macaddress"
+	"github.com/ivoronin/terraform-provider-macaddress/macaddress"
 )
 
 func main() {

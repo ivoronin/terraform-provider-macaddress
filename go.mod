@@ -1,4 +1,4 @@
-module terraform-provider-macaddress
+module github.com/ivoronin/terraform-provider-macaddress
 
 go 1.18
 
